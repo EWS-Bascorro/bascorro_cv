@@ -35,7 +35,7 @@ kernel = np.ones((5, 5), np.uint8)
 
 
 def show_trackbars(window_name="trackbars_windows"):
-    cv2.namedWindow(window_name, cv2.WINDOW_FULLSCREEN)
+    cv2.namedWindow(window_name)
     cv2.createTrackbar("LH", window_name, s.read("LH"), 255, (lambda x: (s.update_or_insert("LH", x))))
     cv2.createTrackbar("LS", window_name, s.read("LS"), 255, (lambda x: (s.update_or_insert("LS", x))))
     cv2.createTrackbar("LV", window_name, s.read("LV"), 255, (lambda x: (s.update_or_insert("LV", x))))
@@ -50,6 +50,8 @@ def main():
     parser.add_argument('-t', action='store_true')
     parser.add_argument('-d', action='store_true')
     arg = parser.parse_args()
+    x=0
+    y=0
 
     if arg.d:
         cv2.namedWindow('HueComp')
@@ -64,10 +66,12 @@ def main():
     w = 360
     h = 330
 
-    try:
-        cap = cv2.VideoCapture(2)
-    except Exception:
-        cap = cv2.VideoCapture(-1)
+    # try:
+    #     cap = cv2.VideoCapture(1)
+    # except Exception:
+    #     cap = cv2.VideoCapture(0)
+    # except Exception:
+    cap = cv2.VideoCapture(-1)
 
     cap.set(3, w)
     cap.set(4, h)
