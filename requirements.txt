@@ -1,4 +1,4 @@
 imutils==0.5.3
 numpy==1.19.1
-opencv-python==3.4.11.41
+opencv-python==4.2.0.32
 pyserial==3.4
